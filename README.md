@@ -6,7 +6,7 @@ User Stories To Get To MVP (Minimum Viable Product)
 
 As a user, I can:
 
-#register a new user account with the system (must be secured with a password)
+#register a new user account with the system (must be secured with a password)\n
 #login with my existing credentials
 #create at least one account
 #deposit funds into an account (use doubles, not ints)
