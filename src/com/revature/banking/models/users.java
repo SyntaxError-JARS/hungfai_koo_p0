@@ -1,86 +1,62 @@
 package com.revature.banking.models;
 
 public class users {
-    private String pokemonName;
-    private int hp;
-    private int atk;
-    private String elementType;
-    private String ability1;
-    private String ability2;
+    private String email;
+    private String password;
+    private String first_name;
+    private String last_name;
+    private int age;
+
 
     // This is a No-Args Constructor. IT's the default, IFFFl there is no other constructor added.
     // Otherwise, the custom constructor overwrites
-    public Pokemon(){
+    public users(){
         super();
     }
 
-    public Pokemon(String pokemonName, int hp, int atk, String elementType, String ability1, String ability2){
+    public users(String email, String password, String first_name, String last_name, int age ){
         super();
-        this.pokemonName = pokemonName; // shadowing, with provided arguments
-        this.hp = hp;
-        this.atk = atk;
-        this.elementType = elementType;
-        this.ability1 = ability1;
-        this.ability2 = ability2;
+        this.email  = email; // shadowing, with provided arguments
+        this.password = password;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.age = age;
+
     }
 
-    public String getPokemonName(){
-        return pokemonName;
+    public String getEmail(){
+        return getEmail();
     }
 
-    public void setPokemonName(String pokemonName) {
-        this.pokemonName = pokemonName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getHp(){
-        return this.hp;
+    public String getPassword(){
+        return this.password;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public int getAtk() {
-        return atk;
+    public String getLast_name() {
+        return this.last_name;
     }
 
-    public void setAtk(int atk) {
-        this.atk = atk;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getElementType() {
-        return elementType;
-    }
-
-    public void setElementType(String elementType) {
-        this.elementType = elementType;
-    }
-
-    public String getAbility1() {
-        return ability1;
-    }
-
-    public void setAbility1(String ability1) {
-        this.ability1 = ability1;
-    }
-
-    public String getAbility2() {
-        return ability2;
-    }
-
-    public void setAbility2(String ability2) {
-        this.ability2 = ability2;
-    }
 
     @Override
     public String toString() {
-        return "Pokemon{" +
-                "pokemonName='" + pokemonName + '\'' +
-                ", hp='" + hp + '\'' +
-                ", atk='" + atk + '\'' +
-                ", elementType='" + elementType + '\'' +
-                ", ability1='" + ability1 + '\'' +
-                ", ability2='" + ability2 + '\'' +
+        return "users{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }
