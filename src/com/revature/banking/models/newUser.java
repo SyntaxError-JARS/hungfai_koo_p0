@@ -1,50 +1,33 @@
 package com.revature.banking.models;
 
 public class newUser {
-    private String fname;
-    private String lname;
     private String email;
     private String password;
-    private String dob;
+    private String first_name;
+    private String last_name;
+    private int age;
 
 //    public Trainer(){}
 
-    public Trainer(String fname, String lname, String email, String password, String dob) {
+    public newUser(String email, String password, String first_name, String last_name, int age) {
         super(); // just always there, by default of EVERY CLASS is Object
-        this.fname = fname;
-        this.lname = lname;
         this.email = email;
         this.password = password;
-        this.dob = dob;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.age = age;
+    }
+
+    public newUser() {
+
     }
 
     // Getters & Setters
-    public String getFname() {
-        return fname;
-    }
-
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
-    // trainer.lname = "Jester" is bad, because you could reassign on accident if it were say and int and you did
-    // trainer.age = 10;
-    // This allows us to explicitly state we are setting the lname variablem, or reassigning it
-    // Trainer trainer = new Trainer();
-    // trainer.setLname("Jester")
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void set(String email) {
         this.email = email;
     }
 
@@ -52,16 +35,25 @@ public class newUser {
         return password;
     }
 
+//
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getDob() {
-        return dob;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String toFileString() {
@@ -69,11 +61,11 @@ public class newUser {
         // Is another class for Strings that allows them to be mutated
         StringBuilder mutableString = new StringBuilder();
         mutableString
-                .append(fname).append(",")
-                .append(lname).append(",")
                 .append(email).append(",")
                 .append(password).append(",")
-                .append(dob);
+                .append(first_name).append(",")
+                .append(last_name).append(",")
+                .append(age);
 
         // Without changing the mutableString class from StringBuilder we wont' have an appropriate return type
         return mutableString.toString(); // We need the toString to return it to it's appropriate type
@@ -81,14 +73,12 @@ public class newUser {
 
     @Override // What this is?? Annotation - basically metadata
     public String toString() {
-        return "Trainer{" +
-                "fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
-                ", email='" + email + '\'' +
+        return "newUser{" +
+                "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", dob='" + dob + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
-
-
 }
