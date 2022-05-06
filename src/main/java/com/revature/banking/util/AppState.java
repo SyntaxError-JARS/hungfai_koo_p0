@@ -2,7 +2,7 @@ package com.revature.banking.util;
 
 import com.revature.banking.menus.RegisterMenu;
 import com.revature.banking.menus.WelcomeMenu;
-import com.revature.banking.services.NewUserService;
+import com.revature.banking.services.AccountServices;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,10 +18,10 @@ public class AppState {
         System.out.println("2. Generating instance of AppState.");
         isRunning = true;
         BufferedReader terminalReader = new BufferedReader(new InputStreamReader(System.in));
-        NewUserService = new NewUserService();
+        AccountServices accountServices = new AccountServices();
 
         // TODO: Why are we doing all of this!?
-        this.welcomeMenu = new WelcomeMenu(terminalReader, trainerServices);
+        this.welcomeMenu = new WelcomeMenu(terminalReader, accountServices);
         this.registerMenu = new RegisterMenu(terminalReader);
     }
 

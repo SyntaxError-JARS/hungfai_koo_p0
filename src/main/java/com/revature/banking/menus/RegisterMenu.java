@@ -1,17 +1,14 @@
 package com.revature.banking.menus;
 
-import com.revature.banking.models.newUser;
-import com.revature.banking.services.newUser;
+import com.revature.banking.models.Account;
+import com.revature.banking.services.AccountServices;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 // Inheritance from menu abstract class :D another pillar of OOP
 public class RegisterMenu extends Menu{
 
-    private newUser newUser = new newUser();
+    private Account Account = new Account();
 
     public RegisterMenu(BufferedReader terminalReader) {
         super("Register", "/register", terminalReader);
@@ -55,9 +52,9 @@ public class RegisterMenu extends Menu{
 
 
         // Trainer trainer = new Trainer(); // why is this red?? there isn't a No-Arg constructor
-        // What's happening here? Intialization a new Trainer object in memory
-        newUser newUser = new newUser(email, password, first_name, last_name, age);
-        System.out.println("Here is the trainer that was provided by the user: " + newUser);
-        newUserServices.registernewUser(newUser);
+        // What's happening here? Intialization a new User object in memory
+        Account Account = new Account(email, password, first_name, last_name, age);
+        System.out.println("Here is the trainer that was provided by the user: " + Account);
+        AccountServices.registerNewUser(Account);
     }
 }

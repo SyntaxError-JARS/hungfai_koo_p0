@@ -1,6 +1,6 @@
 package com.revature.banking.models;
 
-public class newUser {
+public class Account {
     private String email;
     private String password;
     private String first_name;
@@ -9,7 +9,7 @@ public class newUser {
 
 //    public Trainer(){}
 
-    public newUser(String email, String password, String first_name, String last_name, int age) {
+    public Account(String email, String password, String first_name, String last_name, int age) {
         super(); // just always there, by default of EVERY CLASS is Object
         this.email = email;
         this.password = password;
@@ -18,7 +18,7 @@ public class newUser {
         this.age = age;
     }
 
-    public newUser() {
+    public Account() {
 
     }
 

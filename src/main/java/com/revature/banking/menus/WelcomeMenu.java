@@ -6,11 +6,11 @@ import static com.revature.banking.util.AppState.shutdown;
 
 public class WelcomeMenu extends Menu{
 
-    private TrainerServices trainerServices;
+    private newUserServices NewUserServices;
 
-    public WelcomeMenu(BufferedReader terminalReader, TrainerServices trainerServices) {
+    public WelcomeMenu(BufferedReader terminalReader, NewUserServices newUserService) {
         super("Welcome", "/welcome", terminalReader);
-        this.trainerServices = trainerServices;
+        this.newUserServices = NewUserServices;
     }
 
     @Override
@@ -18,12 +18,12 @@ public class WelcomeMenu extends Menu{
         // String is the datatype we are declaring
         // welcome is the variable being declared as a STring
         // the value is being set to Welcome To the Pokedex! in the String pool
-        String welcome = "Welcome to the Pokedex!";
+        String welcome = "Welcome to the Banking!";
         String option1 = "1) Login";
         String option2 = "2) Register";
-        String option3 = "3) View/Create pokemon";
-        String option4 = "4) View all trainers";
-        String option5 = new String("5) Exit the pokedex"); // This is the same as ""
+        String option3 = "3) View/Create banking";
+        String option4 = "4) View all users";
+        String option5 = new String("5) Exit the banking"); // This is the same as ""
 
         System.out.printf("%s \n %s \n %s \n %s \n %s \n %s", welcome, option1, option2, option3, option4, option5).println();
 
@@ -42,12 +42,12 @@ public class WelcomeMenu extends Menu{
                 // register(); // ctrl + left-click
                 break;
             case "3":
-                System.out.println("User has selected view/create pokemon...");
+                System.out.println("User has selected view/create banking...");
                 // pokemonInput(); // ctrl + left-click
                 break;
             case "4":
-                System.out.println("User has selected view trainers...");
-                trainerServices.readTrainers();
+                System.out.println("User has selected view banking...");
+                newUserServices.readUsers();
                 break;
             case "5":
                 System.out.println("User has selected exit...");
