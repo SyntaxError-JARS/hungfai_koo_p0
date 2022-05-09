@@ -38,7 +38,7 @@ public class AccountServices {
              Account account = new Account();
 
             // TODO: Why is this declared as an Object and not a Trainer??
-            Object account1 = new Account("Charles", "Jester", "cj@mail.com", "p", "1111");
+            Object account1 = new Account("Charles", "Jester", "cj@mail.com", "p", 1111);
 
             Account iCanNameThisWhatEverTheHeckoIWant = new Account();
             System.out.println(iCanNameThisWhatEverTheHeckoIWant.getEmail());
@@ -75,7 +75,7 @@ public class AccountServices {
 
     public boolean registerAccount(Account newAccount){
         System.out.println("Account trying to be registered: " + newAccount);
-        if(!validateUserInput(newAccount)){ // checking if false
+        if(!validateAccountInput(newAccount)){ // checking if false
             System.out.println("User was not validated");
             // TODO: throw - what's this keyword?
             throw new RuntimeException();
@@ -93,8 +93,8 @@ public class AccountServices {
         return true;
     }
 
-    private boolean validateUserInput(Account newAccount) {
-        System.out.println("Validating User: " + newAccount);
+    private boolean validateAccountInput(Account newAccount) {
+        System.out.println("Validating Account: " + newAccount);
         if(newAccount == null) return false;
         if(newAccount.getEmail() == null || newAccount.getEmail().trim().equals("")) return false;
         if(newAccount.getPassword() == null || newAccount.getPassword().trim().equals("")) return false;

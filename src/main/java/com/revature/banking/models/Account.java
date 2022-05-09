@@ -35,26 +35,30 @@ public class Account {
         return password;
     }
 
-//
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getFirst_name() {
+    public String getFirst_Name() {
         return first_name;
     }
 
-    public void setFirst_name(String first_name) {
+    public void setFirst_Name(String first_name) {
         this.first_name = first_name;
     }
 
-    public String getLast_name() {
+    public String getLast_Name() {
         return last_name;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
+
 
     public String toFileString() {
         // StringBuilder, there is also a StringBuffer (it's thread-safe)

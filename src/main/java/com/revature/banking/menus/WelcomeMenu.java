@@ -1,4 +1,5 @@
 package com.revature.banking.menus;
+import com.revature.banking.services.AccountServices;
 
 import java.io.BufferedReader;
 
@@ -6,11 +7,11 @@ import static com.revature.banking.util.AppState.shutdown;
 
 public class WelcomeMenu extends Menu{
 
-    private newUserServices NewUserServices;
+    private AccountServices accountServices;
 
-    public WelcomeMenu(BufferedReader terminalReader, NewUserServices newUserService) {
+    public WelcomeMenu(BufferedReader terminalReader, AccountServices accountServices) {
         super("Welcome", "/welcome", terminalReader);
-        this.newUserServices = NewUserServices;
+        this.accountServices = accountServices;
     }
 
     @Override
@@ -22,7 +23,7 @@ public class WelcomeMenu extends Menu{
         String option1 = "1) Login";
         String option2 = "2) Register";
         String option3 = "3) View/Create banking";
-        String option4 = "4) View all users";
+        String option4 = "4) View all accounts";
         String option5 = new String("5) Exit the banking"); // This is the same as ""
 
         System.out.printf("%s \n %s \n %s \n %s \n %s \n %s", welcome, option1, option2, option3, option4, option5).println();
@@ -43,11 +44,11 @@ public class WelcomeMenu extends Menu{
                 break;
             case "3":
                 System.out.println("User has selected view/create banking...");
-                // pokemonInput(); // ctrl + left-click
+                // usersInput(); // ctrl + left-click
                 break;
             case "4":
                 System.out.println("User has selected view banking...");
-                newUserServices.readUsers();
+                accountServices.readAccounts();
                 break;
             case "5":
                 System.out.println("User has selected exit...");

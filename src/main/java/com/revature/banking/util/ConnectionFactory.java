@@ -23,16 +23,19 @@ import java.util.Properties;
 public class ConnectionFactory {
 
     private static final ConnectionFactory connectionFactory = new ConnectionFactory(); // instead Eager Singleton
+
     private Properties prop = new Properties();
 
     // specifically a singleton bc of the private constructor
     private ConnectionFactory(){
         try {
-            prop.load(new FileReader("resources/db.properties"));
+            prop.load(new FileReader("src/main/resources/db.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
     static {
         // Reflections are just viewing a class

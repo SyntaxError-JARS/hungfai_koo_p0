@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 // Inheritance from menu abstract class :D another pillar of OOP
 public class RegisterMenu extends Menu{
 
-    private Account Account = new Account();
+    private AccountServices accountServices = new AccountServices();
 
     public RegisterMenu(BufferedReader terminalReader) {
         super("Register", "/register", terminalReader);
@@ -35,7 +35,7 @@ public class RegisterMenu extends Menu{
         String last_name = terminalReader.readLine();
 
         System.out.println("Age?");
-        String age = terminalReader.readLine();
+        int age = terminalReader.readLine();
 
         // What's happening here???
         // Breaking or splitting the String fullName into an String array by " " spaces
@@ -53,8 +53,8 @@ public class RegisterMenu extends Menu{
 
         // Trainer trainer = new Trainer(); // why is this red?? there isn't a No-Arg constructor
         // What's happening here? Intialization a new User object in memory
-        Account Account = new Account(email, password, first_name, last_name, age);
-        System.out.println("Here is the trainer that was provided by the user: " + Account);
-        AccountServices.registerNewUser(Account);
+        Account newAccount = new Account(email, password, first_name, last_name, age);
+        System.out.println("Here is the trainer that was provided by the user: " + newAccount);
+        accountServices.registerAccount(newAccount);
     }
 }
