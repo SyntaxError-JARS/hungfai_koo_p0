@@ -48,8 +48,8 @@ public class Account {
         return balance;
     }
 
-    public int setBalance() {
-        return balance;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public String getEmail() {

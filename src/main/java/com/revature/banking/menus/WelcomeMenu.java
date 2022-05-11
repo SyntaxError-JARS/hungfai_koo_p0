@@ -13,7 +13,7 @@ public class WelcomeMenu extends Menu{
     private UserServices userServices;
     private final Logger logger;
 
-    public WelcomeMenu(BufferedReader terminalReader, UserServices userServices) {
+    public WelcomeMenu(BufferedReader terminalReader, UserServices userServices, Logger logger) {
         super("Welcome", "/welcome", terminalReader);
         this.userServices = userServices;
         this.logger = logger;
@@ -39,7 +39,20 @@ public class WelcomeMenu extends Menu{
         // TODO: What is a switch?
         switch (userSelection) {
             case "1":
-                System.out.println("User has selected login...");
+                logger.info("User has selected login...");
+
+                System.out.print("Please enter email address: \n>");
+                String email = terminalReader.readLine();
+
+                System.out.print("Please enter password: \n>");
+                String password = terminalReader.readLine();
+
+                try {
+                    User user = userServices.authenticateUser(email, password);
+                    System.out.println(user);
+                } catch (AuthenticationException e){
+                    e.printStackTrace();
+                }
                 break;
             case "2":
                 System.out.println("User has selected register...");
@@ -48,17 +61,21 @@ public class WelcomeMenu extends Menu{
                 // register(); // ctrl + left-click
                 break;
             case "3":
-                System.out.println("User has selected view/create banking...");
-                // usersInput(); // ctrl + left-click
+                System.out.println("User has selected to find user by ID...");
+                System.out.println("Please enter the ID for specific user: ");
+                String id = terminalReader.readLine();
+
+                System.out.println(userServices.readById(id));
                 break;
             case "4":
                 System.out.println("User has selected view banking...");
-                userServices.readUsers();
+                userServices.readAll();
                 break;
             case "5":
                 System.out.println("User has selected exit...");
                 // shutdown application here
                 shutdown();
+                logger.info("Application shutting down");
                 break;
             default: // why have a default? catch all if input doesn't match any case above.
                 System.out.println("No valid user input provide");

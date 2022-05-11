@@ -23,7 +23,7 @@ public abstract class Menu {
         return route;
     }
 
-    // abstract within a method signature neeeds to be implemented in the sub-class
+    // abstract within a method signature needs to be implemented in the sub-class
     // WE NEED TO IMPLEMENT SOME RENDER METHOD on ANY CHILD CLASS
     // 1 Pillar of OOP or Object Orient Programming known as none other than Abstraction
     public abstract void render() throws Exception;

@@ -1,5 +1,7 @@
 package com.revature.banking.services;
 
+import com.revature.banking.models.User;
+
 public interface Serviceable<T> {
 
     // Create
@@ -16,6 +18,5 @@ public interface Serviceable<T> {
     boolean delete(String id);
 
     boolean validateInput(T object);
-
 
 }

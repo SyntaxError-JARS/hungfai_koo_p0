@@ -4,6 +4,7 @@ import com.revature.banking.daos.UserDao;
 import com.revature.banking.exceptions.InvalidRequestException;
 import com.revature.banking.exceptions.ResourcePersistanceException;
 import com.revature.banking.models.User;
+import com.revature.banking.services.UserServices;
 import com.revature.banking.util.logging.Logger;
 
 import java.io.BufferedReader;
@@ -51,7 +52,6 @@ public class RegisterMenu extends Menu{
         }
 
 
-        // Trainer trainer = new Trainer(); // why is this red?? there isn't a No-Arg constructor
         // What's happening here? Intialization a new User object in memory
         User newUser = new User(email, password, first_name, last_name, age);
         System.out.println("Here is the user that was provided by the user: " + newUser);

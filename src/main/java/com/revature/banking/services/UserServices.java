@@ -5,7 +5,7 @@ import com.revature.banking.exceptions.AuthenticationException;
 import com.revature.banking.exceptions.InvalidRequestException;
 import com.revature.banking.exceptions.ResourcePersistanceException;
 import com.revature.banking.models.User;
-import com.revature.banking.util.logging.Logger
+import com.revature.banking.util.logging.Logger;
 
 import java.io.IOException;
 
@@ -93,7 +93,7 @@ public class UserServices implements Serviceable<User>{
         return newUser.getAge() != null || !newUser.getAge().trim().equals("");
     }
 
-    public User authenticateTrainer(String email, String password){
+    public User authenticateUser(String email, String password){
 
         if(password == null || password.trim().equals("") || password == null || password.trim().equals("")) {
             throw new InvalidRequestException("Either username or password is an invalid entry. Please try logging in again");

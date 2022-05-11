@@ -5,7 +5,7 @@ import com.revature.banking.models.Account;
 import com.revature.banking.util.logging.Logger;
 
 public class AccountServices implements Serviceable<Account> {
-    private final AccountDao AccountDao;
+    private final AccountDao accountDao;
 
     private Logger logger = Logger.getLogger();
 

@@ -23,7 +23,6 @@ import java.util.Properties;
 public class ConnectionFactory {
 
     private static final ConnectionFactory connectionFactory = new ConnectionFactory(); // instead Eager Singleton
-
     private Properties prop = new Properties();
 
     // specifically a singleton bc of the private constructor

@@ -36,7 +36,7 @@ public class UserDao implements Crudable<User>{
             int checkInsert = ps.executeUpdate();
 
             if(checkInsert == 0){
-                throw new RuntimeException();
+                throw new ResourcePersistanceException("User was not entered into database due to some issue.");
             }
 
         } catch (SQLException | RuntimeException e){
@@ -50,7 +50,7 @@ public class UserDao implements Crudable<User>{
     public User[] findAll() throws IOException {
 
         // making an array of Trainer classes, and seetting it to a max size of 10
-        User[] trainers = new User[10];
+        User[] users = new User[10];
         // declaring index variable as an int and intiliazation witht he value of 0
         int index = 0; // we want to keep track of where we are placing each trainer from the file into the the array
 
@@ -83,8 +83,6 @@ public class UserDao implements Crudable<User>{
             return null;
         }
 
-
-
         System.out.println("Returning users information to user.");
         return users;
     }
@@ -106,6 +104,7 @@ public class UserDao implements Crudable<User>{
             if(!rs.next()){
                 throw new ResourcePersistanceException("User was not found in the database, please check ID entered was correct.");
             }
+
             User user = new User();
 
             user.setEmail(rs.getString("email")); // this column lable MUST MATCH THE DB
@@ -132,9 +131,9 @@ public class UserDao implements Crudable<User>{
     public boolean delete(String id) {
         return false;
     }
-    public User authenticateUser(String email, String password){
+    public User authenticateUser(String email, String password) {
 
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()){
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
             String sql = "select * from trainer where email = ? and password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, email);
@@ -142,7 +141,7 @@ public class UserDao implements Crudable<User>{
 
             ResultSet rs = ps.executeQuery();
 
-            if(!rs.next()){
+            if (!rs.next()) {
                 return null;
             }
 
@@ -156,10 +155,12 @@ public class UserDao implements Crudable<User>{
 
             return user;
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
+
+    }
         public boolean checkEmail(String email) {
 
             try(Connection conn = ConnectionFactory.getInstance().getConnection()){
