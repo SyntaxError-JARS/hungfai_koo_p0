@@ -69,7 +69,12 @@ public class WelcomeMenu extends Menu{
                 break;
             case "4":
                 System.out.println("User has selected view banking...");
-                userServices.readAll();
+                User[] users = userServices.readAll();
+
+                for(int i = 0; i < users.length; i++){
+                    System.out.println(users[i]);
+                }
+
                 break;
             case "5":
                 System.out.println("User has selected exit...");

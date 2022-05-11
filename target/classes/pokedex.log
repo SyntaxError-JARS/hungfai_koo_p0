@@ -1,0 +1,40 @@
+2022-05-11T13:15:54.937 LOG: 2. Generating instance of AppState.
+2022-05-11T13:15:55.084 INFO: Application successfully started
+2022-05-11T13:16:00.879 INFO: User has selected login...
+2022-05-11T13:19:08.530 LOG: 2. Generating instance of AppState.
+2022-05-11T13:19:08.727 INFO: Application successfully started
+2022-05-11T13:19:12.577 INFO: User has selected login...
+2022-05-11T13:23:09.229 LOG: 2. Generating instance of AppState.
+2022-05-11T13:23:09.371 INFO: Application successfully started
+2022-05-11T13:23:14.409 INFO: User has selected login...
+2022-05-11T13:23:22.376 INFO: Application successfully started
+2022-05-11T13:25:39.386 LOG: 2. Generating instance of AppState.
+2022-05-11T13:25:39.527 INFO: Application successfully started
+2022-05-11T13:25:43.438 INFO: User has selected login...
+2022-05-11T13:25:52.935 INFO: Application successfully started
+2022-05-11T13:27:01.868 INFO: User has selected login...
+2022-05-11T13:27:19.882 INFO: Application successfully started
+2022-05-11T13:27:40.971 INFO: Begin reading Users in our file database.
+2022-05-11T13:27:41.072 INFO: All users have been found here are the results: 
+
+2022-05-11T13:27:41.072 INFO: Application successfully started
+2022-05-11T13:28:37.202 LOG: 2. Generating instance of AppState.
+2022-05-11T13:28:37.339 INFO: Application successfully started
+2022-05-11T13:28:42.801 INFO: Begin reading Users in our file database.
+2022-05-11T13:28:43.164 INFO: All users have been found here are the results: 
+
+2022-05-11T13:28:43.164 INFO: Application successfully started
+2022-05-11T13:44:45.767 LOG: 2. Generating instance of AppState.
+2022-05-11T13:44:45.896 INFO: Application successfully started
+2022-05-11T13:45:02.059 INFO: Begin reading Users in our file database.
+2022-05-11T13:45:02.430 INFO: All users have been found here are the results: 
+
+2022-05-11T13:45:02.430 INFO: Application successfully started
+2022-05-11T13:56:54.517 INFO: User trying to be registered: User{email='jhk888@yahoo.com', first_name='jenni', last_name='so', age='30'}
+2022-05-11T13:56:54.520 DEBUG: Validating Trainer: User{email='jhk888@yahoo.com', first_name='jenni', last_name='so', age='30'}
+2022-05-11T13:56:54.700 INFO: Application successfully started
+2022-05-11T14:03:50.831 LOG: 2. Generating instance of AppState.
+2022-05-11T14:03:50.949 INFO: Application successfully started
+2022-05-11T14:04:13.174 INFO: User trying to be registered: User{email='jhk888@yahoo.com', first_name='jenni', last_name='so', age='30'}
+2022-05-11T14:04:13.174 DEBUG: Validating Trainer: User{email='jhk888@yahoo.com', first_name='jenni', last_name='so', age='30'}
+2022-05-11T14:04:13.625 INFO: Application successfully started

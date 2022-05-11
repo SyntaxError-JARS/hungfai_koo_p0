@@ -19,7 +19,7 @@ public class UserDao implements Crudable<User>{
         try(Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
 
-            String sql = "insert into User (email, password, first_name, last_name, age) values (?, ?, ?, ?, ?)";
+            String sql = "insert into users (email, password, first_name, last_name, age) values (?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -31,7 +31,7 @@ public class UserDao implements Crudable<User>{
             ps.setString(2, newUser.getPassword());
             ps.setString(3, newUser.getFirst_name());
             ps.setString(4, newUser.getLast_name());
-            ps.setString(5, newUser.getAge());
+            ps.setInt(5, Integer.parseInt(newUser.getAge()));
 
             int checkInsert = ps.executeUpdate();
 
@@ -57,7 +57,7 @@ public class UserDao implements Crudable<User>{
         // TODO: we trying something here and passing an argument???
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) { // try with resoruces, because Connection extends the interface Auto-Closeable
 
-            String sql = "select * from user";
+            String sql = "select * from users";
             Statement s = conn.createStatement();
 
             // conn.createStatement().executeQuery("select * from trainer"); fine but generally not used
@@ -134,7 +134,7 @@ public class UserDao implements Crudable<User>{
     public User authenticateUser(String email, String password) {
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
-            String sql = "select * from trainer where email = ? and password = ?";
+            String sql = "select * from users where email = ? and password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, email);
             ps.setString(2, password);
@@ -164,7 +164,7 @@ public class UserDao implements Crudable<User>{
         public boolean checkEmail(String email) {
 
             try(Connection conn = ConnectionFactory.getInstance().getConnection()){
-                String sql = "select email from user where email = ?";
+                String sql = "select email from users where email = ?";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, email);
 
