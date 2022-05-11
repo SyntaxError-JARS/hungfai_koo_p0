@@ -1,5 +1,8 @@
 package com.revature.banking.menus;
-import com.revature.banking.services.AccountServices;
+import com.revature.banking.exceptions.AuthenticationException;
+import com.revature.banking.models.User;
+import com.revature.banking.services.UserServices;
+import com.revature.banking.util.logging.Logger;
 
 import java.io.BufferedReader;
 
@@ -7,18 +10,20 @@ import static com.revature.banking.util.AppState.shutdown;
 
 public class WelcomeMenu extends Menu{
 
-    private AccountServices accountServices;
+    private UserServices userServices;
+    private final Logger logger;
 
-    public WelcomeMenu(BufferedReader terminalReader, AccountServices accountServices) {
+    public WelcomeMenu(BufferedReader terminalReader, UserServices userServices) {
         super("Welcome", "/welcome", terminalReader);
-        this.accountServices = accountServices;
+        this.userServices = userServices;
+        this.logger = logger;
     }
 
     @Override
     public void render() throws Exception {
         // String is the datatype we are declaring
         // welcome is the variable being declared as a STring
-        // the value is being set to Welcome To the Pokedex! in the String pool
+        // the value is being set to Welcome To the banking! in the String pool
         String welcome = "Welcome to the Banking!";
         String option1 = "1) Login";
         String option2 = "2) Register";
@@ -48,7 +53,7 @@ public class WelcomeMenu extends Menu{
                 break;
             case "4":
                 System.out.println("User has selected view banking...");
-                accountServices.readAccounts();
+                userServices.readUsers();
                 break;
             case "5":
                 System.out.println("User has selected exit...");

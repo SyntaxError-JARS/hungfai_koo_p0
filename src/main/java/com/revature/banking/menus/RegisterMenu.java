@@ -1,14 +1,18 @@
 package com.revature.banking.menus;
 
-import com.revature.banking.models.Account;
-import com.revature.banking.services.AccountServices;
+import com.revature.banking.daos.UserDao;
+import com.revature.banking.exceptions.InvalidRequestException;
+import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.models.User;
+import com.revature.banking.util.logging.Logger;
 
 import java.io.BufferedReader;
 
 // Inheritance from menu abstract class :D another pillar of OOP
 public class RegisterMenu extends Menu{
 
-    private AccountServices accountServices = new AccountServices();
+    private UserServices userServices = new UserServices(new UserDao());
+    private final Logger logger = Logger.getLogger(false);
 
     public RegisterMenu(BufferedReader terminalReader) {
         super("Register", "/register", terminalReader);
@@ -35,7 +39,7 @@ public class RegisterMenu extends Menu{
         String last_name = terminalReader.readLine();
 
         System.out.println("Age?");
-        int age = terminalReader.readLine();
+        String age = terminalReader.readLine();
 
 
 
@@ -49,8 +53,14 @@ public class RegisterMenu extends Menu{
 
         // Trainer trainer = new Trainer(); // why is this red?? there isn't a No-Arg constructor
         // What's happening here? Intialization a new User object in memory
-        Account newAccount = new Account(id, account, account_type, balance, email);
-        System.out.println("Here is the account that was provided by the user: " + newAccount);
-        accountServices.registerAccount(newAccount);
+        User newUser = new User(email, password, first_name, last_name, age);
+        System.out.println("Here is the user that was provided by the user: " + newUser);
+
+        // How to fix this emptry
+        try{
+            userServices.create(newUser); // this is the risky code
+        } catch(InvalidRequestException | ResourcePersistanceException e){
+            logger.warn(e.getMessage());
+        }
     }
 }

@@ -7,6 +7,10 @@ public class Account {
     private int balance;
     private String email;
 
+    public Account(){
+        super();
+    }
+
 
     public Account(int id, String account, String account_type, int balance, String email) {
         super(); // just always there, by default of EVERY CLASS is Object
@@ -17,18 +21,12 @@ public class Account {
         this.email = email;
     }
 
-    public Account() {
-
-    }
-
     // Getters & Setters
     public int getId() {
         return id;
     }
 
-    public void set(int id) {
-        this.id = id;
-    }
+    public void setId() {this.id = id; }
 
     public String getAccount() {
         return account;
@@ -63,20 +61,6 @@ public class Account {
     }
 
 
-    public String toFileString() {
-        // StringBuilder, there is also a StringBuffer (it's thread-safe)
-        // Is another class for Strings that allows them to be mutated
-        StringBuilder mutableString = new StringBuilder();
-        mutableString
-                .append(id).append(",")
-                .append(account).append(",")
-                .append(account_type).append(",")
-                .append(balance).append(",")
-                .append(email);
-
-        // Without changing the mutableString class from StringBuilder we wont' have an appropriate return type
-        return mutableString.toString(); // We need the toString to return it to it's appropriate type
-    }
 
     @Override // What this is?? Annotation - basically metadata
     public String toString() {
