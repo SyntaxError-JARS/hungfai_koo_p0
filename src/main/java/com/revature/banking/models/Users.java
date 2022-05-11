@@ -1,6 +1,6 @@
 package com.revature.banking.models;
 
-public class users {
+public class Users {
     private String email;
     private String password;
     private String first_name;
@@ -10,11 +10,11 @@ public class users {
 
     // This is a No-Args Constructor. IT's the default, IFFFl there is no other constructor added.
     // Otherwise, the custom constructor overwrites
-    public users(){
+    public Users(){
         super();
     }
 
-    public users(String email, String password, String first_name, String last_name, int age ){
+    public Users(String email, String password, String first_name, String last_name, int age ){
         super();
         this.email  = email; // shadowing, with provided arguments
         this.password = password;

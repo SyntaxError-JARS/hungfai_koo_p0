@@ -37,11 +37,7 @@ public class RegisterMenu extends Menu{
         System.out.println("Age?");
         int age = terminalReader.readLine();
 
-        // What's happening here???
-        // Breaking or splitting the String fullName into an String array by " " spaces
-        //String[] nameArray = fullName.split(" ");
-        //String fname = nameArray[0];
-        //String lname = nameArray[1];
+
 
         // What's happening here??
         //
@@ -53,8 +49,8 @@ public class RegisterMenu extends Menu{
 
         // Trainer trainer = new Trainer(); // why is this red?? there isn't a No-Arg constructor
         // What's happening here? Intialization a new User object in memory
-        Account newAccount = new Account(email, password, first_name, last_name, age);
-        System.out.println("Here is the trainer that was provided by the user: " + newAccount);
+        Account newAccount = new Account(id, account, account_type, balance, email);
+        System.out.println("Here is the account that was provided by the user: " + newAccount);
         accountServices.registerAccount(newAccount);
     }
 }

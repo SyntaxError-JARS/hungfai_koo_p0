@@ -1,20 +1,13 @@
 package com.revature.banking.services;
 
-import com.revature.banking.daos.NewUserDao;
-import com.revature.banking.exceptions.InvalidRequestException;
-import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.daos.AccountDao;
 import com.revature.banking.models.Account;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 import java.io.IOException;
 
 public class AccountServices {
 
-    private NewUserDao newUserDao = new NewUserDao();
+    private AccountDao accountDao = new AccountDao();
 
     public void readAccounts(){
         System.out.println("Begin reading Account in our file database.");
@@ -22,7 +15,7 @@ public class AccountServices {
 
         try {
             // TODO: What trainerDao intellisense telling me?
-            accounts = NewUserDao.findAll();
+            accounts = AccountDao.findAll();
             System.out.println("All newUsers have been found here are the results: \n");
 //            for (int i = 0; i < trainers.length; i++) {
 //                Trainer trainer = trainers[i];
@@ -69,7 +62,7 @@ public class AccountServices {
     // validateEmailNotUse() this is a method what we want to call to the DAO to check if the email is already in use
     // String email is the defiend parameters for arguments required when invoking this method
     public boolean validateEmailNotUsed(String email){
-        newUserDao.checkEmail(email);
+        accountDao.checkEmail(email);
         return false;
     }
 
@@ -84,7 +77,7 @@ public class AccountServices {
         // TODO: Will implement with JDBC (connecting to our database)
         validateEmailNotUsed(newAccount.getEmail());
 
-        Account persistedAccount = NewUserDao.create(newAccount);
+        Account persistedAccount = AccountDao.create(newAccount);
 
         if(persistedAccount == null){
             throw new RuntimeException();
@@ -96,10 +89,10 @@ public class AccountServices {
     private boolean validateAccountInput(Account newAccount) {
         System.out.println("Validating Account: " + newAccount);
         if(newAccount == null) return false;
-        if(newAccount.getEmail() == null || newAccount.getEmail().trim().equals("")) return false;
-        if(newAccount.getPassword() == null || newAccount.getPassword().trim().equals("")) return false;
-        if(newAccount.getFirst_Name() == null || newAccount.getFirst_Name().trim().equals("")) return false;
-        if(newAccount.getLast_Name() == null || newAccount.getLast_Name().trim().equals("")) return false;
-        return newAccount.getAge() != null || !newAccount.getAge().trim().equals("");
+        if(newAccount.getId() == null || newAccount.getId().trim().equals("")) return false;
+        if(newAccount.getAccount() == null || newAccount.getAccount().trim().equals("")) return false;
+        if(newAccount.getAccount_type() == null || newAccount.getAccount_type().trim().equals("")) return false;
+        if(newAccount.getBalance() == null || newAccount.getBalance().trim().equals("")) return false;
+        return newAccount.getEmail() != null || !newAccount.getEmail().trim().equals("");
     }
 }
