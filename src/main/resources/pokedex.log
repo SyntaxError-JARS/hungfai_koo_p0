@@ -50,3 +50,9 @@
 2022-05-11T14:09:37.648 DEBUG: Validating Trainer: User{email='jhk123@yahoo.com', first_name='Sandy', last_name='Lee', age='35'}
 2022-05-11T14:09:38.074 INFO: Trainer has been persisted: User{email='jhk123@yahoo.com', first_name='Sandy', last_name='Lee', age='35'}
 2022-05-11T14:09:38.074 INFO: Application successfully started
+2022-05-12T19:09:25.358 LOG: 2. Generating instance of AppState.
+2022-05-12T19:09:25.489 INFO: Application successfully started
+2022-05-12T19:09:47.507 LOG: 2. Generating instance of AppState.
+2022-05-12T19:09:47.624 INFO: Application successfully started
+2022-05-12T19:10:09.890 LOG: 2. Generating instance of AppState.
+2022-05-12T19:10:10.019 INFO: Application successfully started
