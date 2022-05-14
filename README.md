@@ -21,7 +21,7 @@ view the balance of my account(s) (all balance displays must be in proper curren
 -Java 8 JDK<br />
 -Apache Maven 3<br />
 -Tomcat 10 Servlets<br />
--Local PostgreSQL (eventually hosted on Azure)<br />
+-Local PostgreSQL<br />
 -Git SCM (GitHub)<br />
 -HTML/CSS/JS
 
