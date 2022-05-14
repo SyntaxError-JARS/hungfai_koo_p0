@@ -18,11 +18,11 @@ view the balance of my account(s) (all balance displays must be in proper curren
 
 
 # Tech Stack
--Java 8 JDK
--Apache Maven 3
--Tomcat 10 Servlets
--Local PostgreSQL (eventually hosted on Azure)
--Git SCM (GitHub)
+-Java 8 JDK<br />
+-Apache Maven 3<br />
+-Tomcat 10 Servlets<br />
+-Local PostgreSQL (eventually hosted on Azure)<br />
+-Git SCM (GitHub)<br />
 -HTML/CSS/JS
 
 # Project Structure
