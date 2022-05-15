@@ -78,7 +78,7 @@ public class UserServices implements Serviceable<User>{
         if(persistedUser == null){
             throw new ResourcePersistanceException("User was not persisted to the database upon registration");
         }
-        logger.info("Trainer has been persisted: " + newUser);
+        logger.info("User has been persisted: " + newUser);
         return persistedUser;
     }
 

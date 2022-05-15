@@ -9,6 +9,7 @@ com/revature/banking/daos/AccountDao.class
 com/revature/banking/services/AccountServices.class
 com/revature/banking/daos/UserDao.class
 com/revature/banking/util/logging/Logger.class
+com/revature/banking/web/servlets/AuthServlet.class
 com/revature/banking/web/servlets/TestServlet.class
 com/revature/banking/models/User.class
 com/revature/banking/daos/Crudable.class

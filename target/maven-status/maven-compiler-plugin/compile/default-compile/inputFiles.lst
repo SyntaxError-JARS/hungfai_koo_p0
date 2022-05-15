@@ -1,4 +1,5 @@
 /Users/ahdoy/IdeaProjects/banking/src/main/java/com/revature/banking/services/UserServices.java
+/Users/ahdoy/IdeaProjects/banking/src/main/java/com/revature/banking/web/servlets/AuthServlet.java
 /Users/ahdoy/IdeaProjects/banking/src/main/java/com/revature/banking/exceptions/ResourcePersistanceException.java
 /Users/ahdoy/IdeaProjects/banking/src/main/java/com/revature/banking/models/Account.java
 /Users/ahdoy/IdeaProjects/banking/src/main/java/com/revature/banking/daos/Crudable.java
