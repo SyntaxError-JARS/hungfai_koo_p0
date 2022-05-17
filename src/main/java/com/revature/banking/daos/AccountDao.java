@@ -53,16 +53,16 @@ public class AccountDao implements Crudable<Account> {
     @Override
     public Account[] findAll() throws IOException {
 
-        // making an array of Trainer classes, and seetting it to a max size of 10
+        // making an array of Trainer classes, and setting it to a max size of 10
         Account[] users = new Account[10];
-        // declaring index variable as an int and intiliazation witht he value of 0
-        int index = 0; // we want to keep track of where we are placing each trainer from the file into the the array
+        // declaring index variable as an int and initialization with he values of 0
+        int index = 0; // we want to keep track of where we are placing each trainer from the file into the array
 
         // TODO: we trying something here and passing an argument???
         Account[] accounts = new Account[0];
-        try (Connection conn = ConnectionFactory.getInstance().getConnection();) { // try with resoruces, because Connection extends the interface Auto-Closeable
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();) { // try with resources, because Connection extends the interface Auto-Closeable
 
-            String sql = "select * from users";
+            String sql = "select * from users_1nf";
             Statement s = conn.createStatement();
 
             // conn.createStatement().executeQuery("select * from trainer"); fine but generally not used

@@ -52,9 +52,21 @@ public class AccountServices implements Serviceable<Account> {
     }
 
     @Override
-    public Account update(Account updatedObject) {
-        return null;
+    public Account update(Account updatedAccount) {
+        logger.info("User trying to update: " + updatedAccount);
+        if(!validateInput(updatedAccount)){
+            throw new InvalidRequestException("Account was not validated");
+        }
+        if(validateEmailNotUsed(updatedAccount.getEmail())){
+            throw new InvalidRequestException("User id is already in use. Please try again with another email or login into previous made account.");
+        }
+
+        Account persistedAccount = accountDao.create(updatedAccount);
+
+        logger.info("Account has been persisted: " + updatedAccount);
+        return updatedAccount;
     }
+
 
     @Override
     public boolean delete(String id) {

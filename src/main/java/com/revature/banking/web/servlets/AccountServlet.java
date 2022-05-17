@@ -58,7 +58,11 @@ public class AccountServlet extends HttpServlet implements Authable {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Account accountUpdate = mapper.readValue(req.getInputStream(), Account.class);
+        Account updatedAccount = accountServices.update(accountUpdate);
 
+        String payload = mapper.writeValueAsString(accountUpdate);
+        resp.getWriter().write(payload);
 
     }
 
