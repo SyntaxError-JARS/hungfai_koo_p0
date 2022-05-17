@@ -1,6 +1,7 @@
 package com.revature.banking.web.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.banking.models.Account;
+import com.revature.banking.models.User;
 import com.revature.banking.services.AccountServices;
 
 import javax.servlet.ServletException;
@@ -42,9 +43,9 @@ public class AccountServlet extends HttpServlet implements Authable {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if(!checkAuth(req, resp)) return;
-        // TODO: Let's create a pokemon
+        // TODO: Let's create a account
         Account newAccount = mapper.readValue(req.getInputStream(), Account.class); // from JSON to Java Object (Pokemon)
+        resp.getWriter().write(newAccount.getEmail() + newAccount.getId());
         Account persistedAccount = accountServices.create(newAccount);
 
         String payload = mapper.writeValueAsString(persistedAccount); // Mapping from Java Object (Account) to JSON
@@ -54,14 +55,9 @@ public class AccountServlet extends HttpServlet implements Authable {
         resp.setStatus(201);
     }
 
+
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-    }
-
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
     }

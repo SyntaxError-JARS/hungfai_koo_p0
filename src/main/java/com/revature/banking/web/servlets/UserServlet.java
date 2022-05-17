@@ -17,7 +17,7 @@ import java.util.List;
 
 import static com.revature.banking.web.servlets.Authable.checkAuth;
 
-// @WebServlet("/trainers")
+
 public class UserServlet extends HttpServlet implements Authable {
 
     private final UserServices userServices;

@@ -82,7 +82,7 @@ public class UserServices implements Serviceable<User>{
 
     @Override
     public boolean validateInput(User newUser) {
-        logger.debug("Validating Trainer: " + newUser);
+        logger.debug("Validating User: " + newUser);
         if(newUser == null) return false;
         if(newUser.getEmail() == null || newUser.getEmail().trim().equals("")) return false;
         if(newUser.getPassword() == null || newUser.getPassword().trim().equals("")) return false;

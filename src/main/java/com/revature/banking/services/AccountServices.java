@@ -1,7 +1,10 @@
 package com.revature.banking.services;
 
 import com.revature.banking.daos.AccountDao;
+import com.revature.banking.exceptions.InvalidRequestException;
+import com.revature.banking.exceptions.ResourcePersistanceException;
 import com.revature.banking.models.Account;
+import com.revature.banking.models.User;
 import com.revature.banking.util.logging.Logger;
 
 public class AccountServices implements Serviceable<Account> {
@@ -12,12 +15,30 @@ public class AccountServices implements Serviceable<Account> {
     public AccountServices(AccountDao accountDao){
         this.accountDao = accountDao;
 
-
     }
 
+
     @Override
-    public Account create(Account newObject) {
-        return null;
+    public Account create(Account newAccount) {
+        logger.info("User trying to be registered: " + newAccount);
+        if(!validateInput(newAccount)){
+            throw new InvalidRequestException("Account was not validated");
+        }
+        if(validateEmailNotUsed(newAccount.getEmail())){
+            throw new InvalidRequestException("User id is already in use. Please try again with another email or login into previous made account.");
+        }
+
+        Account persistedAccount = accountDao.create(newAccount);
+
+//        if (persistedAccount == null){
+//            throw new ResourcePersistanceException("Account was not persisted to the database upon registration");
+//        }
+        logger.info("Account has been persisted: " + newAccount);
+        return persistedAccount;
+    }
+
+    private boolean validateEmailNotUsed(String email) {
+        return false;
     }
 
     @Override
@@ -42,6 +63,6 @@ public class AccountServices implements Serviceable<Account> {
 
     @Override
     public boolean validateInput(Account object) {
-        return false;
+        return true;
     }
 }

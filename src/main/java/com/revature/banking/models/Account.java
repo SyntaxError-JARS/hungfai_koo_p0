@@ -4,7 +4,7 @@ public class Account {
     private int id;
     private String account;
     private String account_type;
-    private int balance;
+    private double balance;
     private String email;
 
     public Account(){
@@ -12,7 +12,7 @@ public class Account {
     }
 
 
-    public Account(int id, String account, String account_type, int balance, String email) {
+    public Account(int id, String account, String account_type, double balance, String email) {
         super(); // just always there, by default of EVERY CLASS is Object
         this.id = id;
         this.account = account;
@@ -26,7 +26,7 @@ public class Account {
         return id;
     }
 
-    public void setId() {this.id = id; }
+    public void setId(int id) {this.id = this.id; }
 
     public String getAccount() {
         return account;
@@ -44,7 +44,7 @@ public class Account {
         this.account_type = account_type;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -65,7 +65,7 @@ public class Account {
     @Override // What this is?? Annotation - basically metadata
     public String toString() {
         return "Account{" +
-                "id='" + id + '\'' +
+//                "id='" + id + '\'' +
                 ", account='" + account + '\'' +
                 ", account_type='" + account_type + '\'' +
                 ", balance='" + balance + '\'' +

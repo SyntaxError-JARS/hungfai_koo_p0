@@ -8,14 +8,12 @@ import com.revature.banking.services.UserServices;
 import com.revature.banking.web.dto.LoginCreds;
 
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-//@WebServlet("/auth")
 public class AuthServlet extends HttpServlet {
 
     private final UserServices userServices;
