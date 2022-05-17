@@ -56,3 +56,6 @@
 2022-05-12T19:09:47.624 INFO: Application successfully started
 2022-05-12T19:10:09.890 LOG: 2. Generating instance of AppState.
 2022-05-12T19:10:10.019 INFO: Application successfully started
+2022-05-16T17:45:22.180 INFO: User trying to be registered: User{email='pie', first_name='pie', last_name='pie', age='pie'}
+2022-05-16T17:45:22.194 DEBUG: Validating Trainer: User{email='pie', first_name='pie', last_name='pie', age='pie'}
+2022-05-16T17:45:22.200 INFO: User has been persisted: User{email='pie', first_name='pie', last_name='pie', age='pie'}

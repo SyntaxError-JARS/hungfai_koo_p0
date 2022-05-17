@@ -5,6 +5,7 @@ import com.revature.banking.exceptions.AuthenticationException;
 import com.revature.banking.exceptions.InvalidRequestException;
 import com.revature.banking.models.User;
 import com.revature.banking.services.UserServices;
+import com.revature.banking.web.dto.LoginCreds;
 
 
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/auth")
+//@WebServlet("/auth")
 public class AuthServlet extends HttpServlet {
 
     private final UserServices userServices;
@@ -32,21 +33,20 @@ public class AuthServlet extends HttpServlet {
         try {
             // The jackson library has the ObjectMapper with methods to readValues from the HTTPRequest body as an input stream and assign it to the class
 
-//            LoginCreds loginCreds = mapper.readValue(req.getInputStream(), LoginCreds.class);
-//            User authUser = userServices.authenticateUser(loginCreds.getEmail(), loginCreds.getPassword());
-            User reqUser = mapper.readValue(req.getInputStream(), User.class);
-
-            User authUser = userServices.authenticateUser(reqUser.getEmail(), reqUser.getPassword());
+            LoginCreds loginCreds = mapper.readValue(req.getInputStream(), LoginCreds.class);
+            User authUser = userServices.authenticateUser(loginCreds.getEmail(), loginCreds.getPassword());
+//            User reqUser = mapper.readValue(req.getInputStream(), User.class);
+//            User authUser = userServices.authenticateUser(reqUser.getEmail(), reqUser.getPassword());
 
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("authUser", authUser);
 
             resp.getWriter().write("You have successfully logged in!");
         } catch (AuthenticationException | InvalidRequestException e){
-            resp.setStatus(401);
+            resp.setStatus(404);
             resp.getWriter().write(e.getMessage());
         } catch (Exception e){
-            resp.setStatus(501);
+            resp.setStatus(500);
             resp.getWriter().write(e.getMessage());
         }
     }
