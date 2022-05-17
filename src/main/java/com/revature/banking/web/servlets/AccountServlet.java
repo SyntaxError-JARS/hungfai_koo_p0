@@ -47,7 +47,7 @@ public class AccountServlet extends HttpServlet implements Authable {
         Account newAccount = mapper.readValue(req.getInputStream(), Account.class); // from JSON to Java Object (Pokemon)
         Account persistedAccount = accountServices.create(newAccount);
 
-        String payload = mapper.writeValueAsString(persistedAccount); // Mapping from Java Object (Pokemon) to JSON
+        String payload = mapper.writeValueAsString(persistedAccount); // Mapping from Java Object (Account) to JSON
 
         resp.getWriter().write("Persisted the provided account as show below \n");
         resp.getWriter().write(payload);

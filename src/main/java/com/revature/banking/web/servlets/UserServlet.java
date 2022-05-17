@@ -2,6 +2,7 @@ package com.revature.banking.web.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.models.Account;
 import com.revature.banking.models.User;
 import com.revature.banking.services.UserServices;
 import com.revature.banking.util.logging.Logger;
@@ -38,7 +39,7 @@ public class UserServlet extends HttpServlet implements Authable {
 //        System.out.println(pathParts[0] + pathParts[1] + pathParts[2]);
 
 
-        // Handling the query params in the /trainers?id=x&email=y
+        // Handling the query params in the /users?id=x&email=y
         if(req.getParameter("id") != null && req.getParameter("email") != null){
             resp.getWriter().write("Hey you have the follow id and email " + req.getParameter("id") + " " + req.getParameter("email") );
             return;
@@ -67,8 +68,16 @@ public class UserServlet extends HttpServlet implements Authable {
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // TODO: Let's create a User
+        User newUser = mapper.readValue(req.getInputStream(), User.class); // from JSON to Java Object (User)
+        User persistedUser = userServices.create(newUser);
 
+        String payload = mapper.writeValueAsString(persistedUser); // Mapping from Java Object (User) to JSON
+
+        resp.getWriter().write("Persisted the provided user as show below \n");
+        resp.getWriter().write(payload);
+        resp.setStatus(201);
     }
 
     @Override

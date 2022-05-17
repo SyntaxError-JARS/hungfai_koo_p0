@@ -61,21 +61,19 @@ public class UserServices implements Serviceable<User>{
         return userDao.checkEmail(email);
     }
 
-    public User create(User newUser){
+    @Override
+    public User create(User newUser) {
         logger.info("User trying to be registered: " + newUser);
-        if(!validateInput(newUser)){ // checking if false
-            // TODO: throw - what's this keyword?
-            throw new InvalidRequestException("User input was not validated, either empty String or null values");
+        if(!validateInput(newUser)){
+            throw new InvalidRequestException("User was not validated");
         }
-
-        // TODO: Will implement with JDBC (connecting to our database)
         if(validateEmailNotUsed(newUser.getEmail())){
             throw new InvalidRequestException("User email is already in use. Please try again with another email or login into previous made account.");
         }
 
         User persistedUser = userDao.create(newUser);
 
-        if(persistedUser == null){
+        if (persistedUser == null){
             throw new ResourcePersistanceException("User was not persisted to the database upon registration");
         }
         logger.info("User has been persisted: " + newUser);

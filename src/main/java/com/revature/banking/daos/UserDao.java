@@ -107,7 +107,7 @@ public class UserDao implements Crudable<User>{
 
             User user = new User();
 
-            user.setEmail(rs.getString("email")); // this column lable MUST MATCH THE DB
+            user.setEmail(rs.getString("email")); // this column label MUST MATCH THE DB
             user.setPassword(rs.getString("password"));
             user.setFirst_name(rs.getString("first_name"));
             user.setLast_name(rs.getString("last_name"));

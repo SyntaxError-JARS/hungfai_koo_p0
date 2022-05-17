@@ -9,7 +9,7 @@ public interface Authable {
 
     static boolean checkAuth(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession httpSession = req.getSession();
-        if(httpSession.getAttribute("authTrainer") == null){
+        if(httpSession.getAttribute("authUser") == null){
             resp.getWriter().write("Unauthorized request - not log in as registered user");
             resp.setStatus(401); // Unauthorized
             return false;

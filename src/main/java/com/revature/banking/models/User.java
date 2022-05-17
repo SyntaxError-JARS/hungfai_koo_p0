@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class User {
     private String email;
-    @JsonIgnore
     private String password;
     private String first_name;
     private String last_name;
@@ -106,6 +105,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "email='" + email + '\'' +
+                ", Password = '" + password + '\'' +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", age='" + age + '\'' +
