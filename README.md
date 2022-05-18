@@ -13,7 +13,7 @@ register a new user account with the system (must be secured with a password)<br
 login with my existing credentials<br />
 create at least one account<br />
 deposit funds into an account (use doubles, not ints)<br />
-withdraw funds from an account (no overdrafting!)<br />
+update funds from an account (no overdrafting!)<br />
 view the balance of my account(s) (all balance displays must be in proper currency format)
 
 
