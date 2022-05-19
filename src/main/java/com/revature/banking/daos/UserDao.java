@@ -46,6 +46,12 @@ public class UserDao implements Crudable<User>{
         return newUser;
     }
 
+    public User deposit(User Obj) {return null;}
+
+    public User withdraw(User Obj) {return null;}
+    public User findByEmail(String Email){
+            return null;
+    }
     @Override
     public User[] findAll() throws IOException {
 
@@ -87,7 +93,7 @@ public class UserDao implements Crudable<User>{
         return users;
     }
 
-    @Override
+
     public User findById(String id) {
 
 
@@ -122,7 +128,7 @@ public class UserDao implements Crudable<User>{
 
     }
 
-    @Override
+
     public boolean update(User updatedObj) {
         return false;
     }
@@ -161,23 +167,23 @@ public class UserDao implements Crudable<User>{
         }
 
     }
-        public boolean checkEmail(String email) {
+    public boolean checkEmail(String email) {
 
-            try(Connection conn = ConnectionFactory.getInstance().getConnection()){
-                String sql = "select email from users where email = ?";
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, email);
+        try(Connection conn = ConnectionFactory.getInstance().getConnection()){
+            String sql = "select email from users where email = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, email);
 
-                ResultSet rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
-                if(!rs.isBeforeFirst()){
-                    return false;
-                }
-                return true;
-            } catch (SQLException e) {
-                e.printStackTrace();
+            if(!rs.isBeforeFirst()){
                 return false;
             }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
+    }
 
 }

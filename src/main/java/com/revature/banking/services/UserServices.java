@@ -36,7 +36,7 @@ public class UserServices implements Serviceable<User>{
         }
     }
 
-    @Override
+
     public User readById(String id){
         try {
             User user = userDao.findById(id);
@@ -51,6 +51,12 @@ public class UserServices implements Serviceable<User>{
     public User update(User updatedObject) {
         return null;
     }
+
+    public User readByEmail(String email) {return null;}
+
+    public User deposit(User updatedObject) { return null;}
+
+    public User withdraw(User updatedObject) {return null;}
 
     @Override
     public boolean delete(String id) {

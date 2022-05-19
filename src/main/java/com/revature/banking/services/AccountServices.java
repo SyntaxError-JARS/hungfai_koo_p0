@@ -45,8 +45,10 @@ public class AccountServices implements Serviceable<Account> {
     public Account[] readAll() {
         return new Account[0];
     }
+    public Account readByEmail(String email) {
+        return null;
+    }
 
-    @Override
     public Account readById(String id) {
         return null;
     }
@@ -67,13 +69,24 @@ public class AccountServices implements Serviceable<Account> {
         return updatedAccount;
     }
 
+    public Account withdraw(Account createUpdate) {
+
+
+        return accountDao.withdraw(createUpdate);
+    }
 
     @Override
+    public Account deposit(Account newUpdate) {
+        logger.info("User trying to update: " + newUpdate);
+        return null;
+    }
+
+
     public boolean delete(String id) {
         return false;
     }
 
-    @Override
+
     public boolean validateInput(Account object) {
         return true;
     }

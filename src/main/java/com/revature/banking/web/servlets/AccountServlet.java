@@ -56,14 +56,26 @@ public class AccountServlet extends HttpServlet implements Authable {
     }
 
 
+//    @Override
+//    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//       Account accountUpdate = mapper.readValue(req.getInputStream(), Account.class);
+//        Account updatedAccount = accountServices.update(accountUpdate);
+//
+//       String payload = mapper.writeValueAsString(accountUpdate);
+//        resp.getWriter().write(payload);
+//
+//    }
+//
+//}
+
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Account accountUpdate = mapper.readValue(req.getInputStream(), Account.class);
-        Account updatedAccount = accountServices.update(accountUpdate);
+//        if(!Authable.checkAuth(req, resp)) return;
 
-        String payload = mapper.writeValueAsString(accountUpdate);
-        resp.getWriter().write(payload);
+        Account createUpdate = mapper.readValue(req.getInputStream(), Account.class);
+        Account updatedAccount = accountServices.withdraw(createUpdate);
 
+        String payload = mapper.writeValueAsString(updatedAccount);
+        resp.getWriter().write("You have successfully withdraw into your account");
     }
-
 }

@@ -12,10 +12,12 @@ public interface Crudable<T> {
 
     // Read
     T[] findAll() throws IOException;
-    T findById(String id);
+    T findByEmail(String email);
 
     // Update
-    public boolean update(T updatedObj);
+    //Update
+    T deposit(T updatedObj);
+    T withdraw(T updatedObj);
 
     //Delete
     boolean delete(String id);

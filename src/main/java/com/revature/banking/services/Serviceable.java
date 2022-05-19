@@ -9,11 +9,12 @@ public interface Serviceable<T> {
 
     // Read
     T[] readAll();
-    T readById(String id);
+    T readByEmail(String email);
 
     // Update
     T update(T updatedObject);
-
+    T deposit(T updatedObject);
+    T withdraw(T updatedObject);
     // Delete
     boolean delete(String id);
 

@@ -4,7 +4,7 @@ public class Account {
     private int id;
     private String account;
     private String account_type;
-    private double balance;
+    private int balance;
     private String email;
 
     public Account(){
@@ -12,7 +12,7 @@ public class Account {
     }
 
 
-    public Account(int id, String account, String account_type, double balance, String email) {
+    public Account(int id, String account, String account_type, int balance, String email) {
         super(); // just always there, by default of EVERY CLASS is Object
         this.id = id;
         this.account = account;
@@ -44,7 +44,7 @@ public class Account {
         this.account_type = account_type;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
