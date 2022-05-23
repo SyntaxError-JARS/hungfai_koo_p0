@@ -33,11 +33,6 @@ public class UserServlet extends HttpServlet implements Authable {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         if(!checkAuth(req, resp)) return;
-        // The below code allows to split information from the endpoint after the /trainers/. Reminder the first element is empty because it takes the value from before the first /
-//        String pathInfo = req.getPathInfo();
-//        String[] pathParts = pathInfo.split("/");
-//        System.out.println(pathParts[0] + pathParts[1] + pathParts[2]);
-
 
         // Handling the query params in the /users?id=x&email=y
         if(req.getParameter("id") != null && req.getParameter("email") != null){

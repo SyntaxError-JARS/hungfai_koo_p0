@@ -1,7 +1,6 @@
 package com.revature.banking.web.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.banking.models.Account;
-import com.revature.banking.models.User;
 import com.revature.banking.services.AccountServices;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.revature.banking.web.servlets.Authable.checkAuth;
 
 public class AccountServlet extends HttpServlet implements Authable {
 
@@ -56,17 +54,7 @@ public class AccountServlet extends HttpServlet implements Authable {
     }
 
 
-//    @Override
-//    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//       Account accountUpdate = mapper.readValue(req.getInputStream(), Account.class);
-//        Account updatedAccount = accountServices.update(accountUpdate);
-//
-//       String payload = mapper.writeValueAsString(accountUpdate);
-//        resp.getWriter().write(payload);
-//
-//    }
-//
-//}
+
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
