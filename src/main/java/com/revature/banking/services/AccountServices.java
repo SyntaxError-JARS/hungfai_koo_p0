@@ -2,7 +2,7 @@ package com.revature.banking.services;
 
 import com.revature.banking.daos.AccountDao;
 import com.revature.banking.exceptions.InvalidRequestException;
-import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.exceptions.ResourcePersistenceException;
 import com.revature.banking.models.Account;
 import com.revature.banking.models.User;
 import com.revature.banking.util.logging.Logger;
@@ -30,9 +30,6 @@ public class AccountServices implements Serviceable<Account> {
 
         Account persistedAccount = accountDao.create(newAccount);
 
-//        if (persistedAccount == null){
-//            throw new ResourcePersistanceException("Account was not persisted to the database upon registration");
-//        }
         logger.info("Account has been persisted: " + newAccount);
         return persistedAccount;
     }

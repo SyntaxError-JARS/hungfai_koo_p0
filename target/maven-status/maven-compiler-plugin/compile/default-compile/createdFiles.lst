@@ -1,4 +1,3 @@
-com/revature/banking/exceptions/ResourcePersistanceException.class
 com/revature/banking/exceptions/InvalidRequestException.class
 com/revature/banking/web/servlets/Authable.class
 com/revature/banking/models/Account.class
@@ -18,3 +17,4 @@ com/revature/banking/web/servlets/AuthServlet.class
 com/revature/banking/web/servlets/TestServlet.class
 com/revature/banking/models/User.class
 com/revature/banking/daos/Crudable.class
+com/revature/banking/exceptions/ResourcePersistenceException.class

@@ -1,7 +1,7 @@
 package com.revature.banking.daos;
 
 import com.revature.banking.exceptions.InvalidRequestException;
-import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.exceptions.ResourcePersistenceException;
 import com.revature.banking.models.Account;
 import com.revature.banking.util.ConnectionFactory;
 import com.revature.banking.util.logging.Logger;
@@ -37,7 +37,7 @@ public class AccountDao implements Crudable<Account> {
             int checkInsert = ps.executeUpdate();
 
             if (checkInsert == 0) {
-                throw new ResourcePersistanceException("Account was not entered into database due to some issue.");
+                throw new ResourcePersistenceException("Account was not entered into database due to some issue.");
             }
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -67,7 +67,7 @@ public class AccountDao implements Crudable<Account> {
             ResultSet rs = ps.executeQuery();
 
             if (!rs.next()) {
-                throw new ResourcePersistanceException("Username was not found in the database.");
+                throw new ResourcePersistenceException("Username was not found in the database.");
             }
 
             Account accountBalance = new Account();

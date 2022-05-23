@@ -1,7 +1,7 @@
 package com.revature.banking.web.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.exceptions.ResourcePersistenceException;
 import com.revature.banking.models.Account;
 import com.revature.banking.models.User;
 import com.revature.banking.services.UserServices;
@@ -50,7 +50,7 @@ public class UserServlet extends HttpServlet implements Authable {
             User user;
             try {
                 user = userServices.readById(req.getParameter("id")); // EVERY PARAMETER RETURN FROM A URL IS A STRING
-            } catch (ResourcePersistanceException e){
+            } catch (ResourcePersistenceException e){
                 logger.warn(e.getMessage());
                 resp.setStatus(404);
                 resp.getWriter().write(e.getMessage());

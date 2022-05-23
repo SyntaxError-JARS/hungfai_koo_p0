@@ -1,6 +1,6 @@
 package com.revature.banking.daos;
 
-import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.exceptions.ResourcePersistenceException;
 import com.revature.banking.models.User;
 import com.revature.banking.util.ConnectionFactory;
 import com.revature.banking.util.logging.Logger;
@@ -36,7 +36,7 @@ public class UserDao implements Crudable<User>{
             int checkInsert = ps.executeUpdate();
 
             if(checkInsert == 0){
-                throw new ResourcePersistanceException("User was not entered into database due to some issue.");
+                throw new ResourcePersistenceException("User was not entered into database due to some issue.");
             }
 
         } catch (SQLException | RuntimeException e){
@@ -108,7 +108,7 @@ public class UserDao implements Crudable<User>{
             ResultSet rs = ps.executeQuery(); // remember dql, bc selects are the keywords
 
             if(!rs.next()){
-                throw new ResourcePersistanceException("User was not found in the database, please check ID entered was correct.");
+                throw new ResourcePersistenceException("User was not found in the database, please check ID entered was correct.");
             }
 
             User user = new User();

@@ -3,7 +3,7 @@ package com.revature.banking.services;
 import com.revature.banking.daos.UserDao;
 import com.revature.banking.exceptions.AuthenticationException;
 import com.revature.banking.exceptions.InvalidRequestException;
-import com.revature.banking.exceptions.ResourcePersistanceException;
+import com.revature.banking.exceptions.ResourcePersistenceException;
 import com.revature.banking.models.User;
 import com.revature.banking.util.logging.Logger;
 
@@ -41,7 +41,7 @@ public class UserServices implements Serviceable<User>{
         try {
             User user = userDao.findById(id);
             return user;
-        } catch (ResourcePersistanceException e){
+        } catch (ResourcePersistenceException e){
             logger.warn(e.getMessage());
             return null;
         }
@@ -80,7 +80,7 @@ public class UserServices implements Serviceable<User>{
         User persistedUser = userDao.create(newUser);
 
         if (persistedUser == null){
-            throw new ResourcePersistanceException("User was not persisted to the database upon registration");
+            throw new ResourcePersistenceException("User was not persisted to the database upon registration");
         }
         logger.info("User has been persisted: " + newUser);
         return persistedUser;
